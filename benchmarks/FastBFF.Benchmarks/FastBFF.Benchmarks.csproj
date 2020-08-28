@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+      <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+      <ServerGarbageCollection>true</ServerGarbageCollection>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.12.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.7" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="3.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FastBFF.HTTP.Client\FastBFF.HTTP.Client.csproj" />
+    <ProjectReference Include="..\..\src\FastBFF.HTTP.Server\FastBFF.HTTP.Server.csproj" />
+  </ItemGroup>
+
+</Project>
