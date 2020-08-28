@@ -36,7 +36,7 @@ namespace FastBFF.HTTP.Server.Controllers
         }
 
 
-        public static void WriteProperty(this PipeWriter pipe, ReadOnlyMemory<byte> property, int value, Encoder encoder)
+        public static void WriteProperty(this PipeWriter pipe, ReadOnlyMemory<byte> property, int value)
         {
             pipe.Write(property.Span);
 
@@ -52,7 +52,7 @@ namespace FastBFF.HTTP.Server.Controllers
             pipe.Write(value.Span);
         }
 
-        public static async ValueTask WriteProperty(this Stream stream, ReadOnlyMemory<byte> property, int value, Encoder encoder)
+        public static async ValueTask WriteProperty(this Stream stream, ReadOnlyMemory<byte> property, int value)
         {
             await stream.WriteAsync(property);
 

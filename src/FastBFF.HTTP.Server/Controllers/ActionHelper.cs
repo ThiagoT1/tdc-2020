@@ -52,19 +52,17 @@ namespace FastBFF.HTTP.Server.Controllers
             response.StatusCode = 200;
 
             
-            var balanceTask =  byteArrayRepository.GetBalance(accountNumber);
+            var balanceTask =  byteArrayRepository.GetBalance(accountNumber); 
             var ordersTask = byteArrayRepository.GetOrders(accountNumber);
 
 
             await response.StartAsync();
 
-            var encoder = Encoding.UTF8.GetEncoder();
-
             var stream = response.Body;
 
             await stream.WriteAsync(ResponseExtensions.StartObject);
 
-            await stream.WriteProperty(ResponseExtensions.AccountName, accountNumber, encoder);
+            await stream.WriteProperty(ResponseExtensions.AccountName, accountNumber);
 
             await stream.WriteAsync(ResponseExtensions.Comma);
 
@@ -88,13 +86,11 @@ namespace FastBFF.HTTP.Server.Controllers
 
             await response.StartAsync();
 
-            var encoder = Encoding.UTF8.GetEncoder();
-
             var pipeWriter = response.BodyWriter;
 
             pipeWriter.Write(ResponseExtensions.StartObject.Span);
 
-            pipeWriter.WriteProperty(ResponseExtensions.AccountName, accountNumber, encoder);
+            pipeWriter.WriteProperty(ResponseExtensions.AccountName, accountNumber);
 
             pipeWriter.Write(ResponseExtensions.Comma.Span);
             pipeWriter.Write(ResponseExtensions.BalanceName.Span);
